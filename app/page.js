@@ -1,9 +1,21 @@
+"use client";
+
 import SaveToCalendarButton from "@/components/SaveToCalendarButton";
+import useWindowSize from "@/hooks/useWindowSize";
 import Image from "next/image";
+import Confetti from "react-confetti";
 
 export default function Home() {
+  const { windowSize } = useWindowSize();
+
   return (
     <main className="">
+      <Confetti
+        className="w-full h-full"
+        recycle={false}
+        width={windowSize.width}
+        height={windowSize.height}
+      />
       <section className="relative container max-w-lg mx-auto pl-12 bg-background h-screen flex items-center">
         <Image
           className="absolute top-0 right-0"
