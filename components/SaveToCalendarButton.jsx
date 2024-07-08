@@ -28,13 +28,24 @@ const event = {
   ],
 };
 
+const startTime = new Date(Date.UTC(2024, 11, 2, 11, 30));
+const endTime = new Date(
+  startTime.getTime() +
+    event.duration.hours * 60 * 60 * 1000 +
+    event.duration.minutes * 60 * 1000
+);
+
+const formatDate = (date) => {
+  return date.toISOString().replace(/-|:|\.\d+/g, "");
+};
+
 const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
   event.title
 )}&details=${encodeURIComponent(
   event.description
-)}&location=${encodeURIComponent(
-  location
-)}&dates=20240721T093000Z/20240721T150000Z&ctz=Asia/Kolkata`;
+)}&location=${encodeURIComponent(location)}&dates=${formatDate(
+  startTime
+)}/${formatDate(endTime)}&ctz=Asia/Kolkata&ctz=Asia/Kolkata`;
 
 export default function SaveToCalendarButton() {
   const [device, setDevice] = useState("other");
