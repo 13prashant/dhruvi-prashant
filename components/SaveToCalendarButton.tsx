@@ -1,14 +1,20 @@
 "use client";
 
-import { checkDevice } from "@/lib/checkDevice";
-import { getBrowserName } from "@/lib/getBrowserName";
-import { generateICS } from "@/lib/icsGenerator";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { checkDevice } from "../lib/checkDevice";
+import { getBrowser } from "../lib/getBrowser";
+import { generateICS } from "../lib/icsGenerator";
+
+export enum Device {
+  iOs = "iOs",
+  android = "android",
+  other = "other",
+}
 
 const location = "Ramji Vadi, Budiya, Surat- 395007";
 const googleMapsUrl = "https://maps.app.goo.gl/nrmQMFvFXswUfwQb7";
-const organizerPhoneNumber = "+91 9662017916";
+const organizerPhoneNumber = "+919662017916";
 
 const event = {
   start: [2024, 12, 2, 17, 0], // Year, Month, Day, Hour, Minute
@@ -35,7 +41,7 @@ const endTime = new Date(
     event.duration.minutes * 60 * 1000
 );
 
-const formatDate = (date) => {
+const formatDate = (date: Date) => {
   return date.toISOString().replace(/-|:|\.\d+/g, "");
 };
 
@@ -48,17 +54,17 @@ const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLAT
 )}/${formatDate(endTime)}&ctz=Asia/Kolkata&ctz=Asia/Kolkata`;
 
 export default function SaveToCalendarButton() {
-  const [device, setDevice] = useState("other");
+  const [device, setDevice] = useState(Device.other);
   const [browser, setBrowser] = useState("");
 
   useEffect(() => {
     setDevice(checkDevice());
-    setBrowser(getBrowserName());
+    setBrowser(getBrowser());
   }, []);
 
   const handleSaveToCalendar = async () => {
     try {
-      const icsValue = await generateICS(event);
+      const icsValue = (await generateICS(event)) as BlobPart;
 
       const blob = new Blob([icsValue], {
         type: "text/calendar;charset=utf-8",
@@ -88,13 +94,14 @@ export default function SaveToCalendarButton() {
     }
   };
 
+  const buttonClasses =
+    "bg-primary/90 px-6 py-2 rounded-sm font-semibold cursor-pointer hover:bg-secondary text-primary-foreground duration-200";
+
+  const isSafariWithIOs = device === Device.iOs && browser === "Safari";
   return (
     <>
-      {device === "iOs" && browser === "Safari" ? (
-        <button
-          className="bg-primary/90 px-6 py-2 rounded-sm font-semibold cursor-pointer hover:bg-secondary text-primary-foreground duration-200"
-          onClick={handleSaveToCalendar}
-        >
+      {isSafariWithIOs ? (
+        <button className={buttonClasses} onClick={handleSaveToCalendar}>
           Save to Calendar
         </button>
       ) : (
@@ -102,7 +109,7 @@ export default function SaveToCalendarButton() {
           href={googleCalendarUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-primary/90 px-6 py-2 rounded-sm font-semibold cursor-pointer hover:bg-secondary text-primary-foreground duration-200"
+          className={buttonClasses}
         >
           Save to Calendar
         </a>

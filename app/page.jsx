@@ -1,9 +1,9 @@
 "use client";
 
-import SaveToCalendarButton from "@/components/SaveToCalendarButton";
-import useWindowSize from "@/hooks/useWindowSize";
 import Image from "next/image";
 import Confetti from "react-confetti";
+import SaveToCalendarButton from "../components/SaveToCalendarButton";
+import useWindowSize from "../hooks/useWindowSize";
 
 export default function Home() {
   const { windowSize } = useWindowSize();
