@@ -16,7 +16,7 @@ export default function Home() {
         width={windowSize.width}
         height={windowSize.height}
       />
-      <section className="relative container max-w-lg mx-auto pl-12 bg-background h-screen flex items-center">
+      <section className="relative container max-w-lg mx-auto pl-12 bg-background h-screen flex items-center pattern">
         <Image
           className="absolute top-0 right-0"
           src="/assets/decor-tr.svg"
