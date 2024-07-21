@@ -9,14 +9,14 @@ export default function Home() {
   const { windowSize } = useWindowSize();
 
   return (
-    <main className="">
+    <main className="desktop-bg h-screen grid place-items-center">
       <Confetti
         className="w-full h-full"
         recycle={false}
         width={windowSize.width}
         height={windowSize.height}
       />
-      <section className="relative container max-w-lg mx-auto pl-12 bg-background h-screen flex items-center pattern">
+      <section className="relative container max-w-lg mx-auto pl-12 bg-background h-screen max-h-[58rem] flex items-center pattern">
         <Image
           className="absolute top-0 right-0"
           src="/assets/decor-tr.svg"
@@ -33,11 +33,11 @@ export default function Home() {
         />
 
         <div className="relative z-50">
-          <strong className="font-serif text-xs underline tracking-wider">
+          <strong className="text-sm underline decoration-wavy decoration-secondary tracking-wider">
             Wedding Invitation
           </strong>
 
-          <div className="relative w-fit flex flex-col gap-3 text-secondary mt-5 mb-10">
+          <div className="relative w-fit flex flex-col gap-3 text-secondary mt-10 mb-10">
             <h2 className="text-4xl font-semibold">Dhruvi</h2>
             <h1 className="text-9xl absolute -top-4 left-10 text-secondary/20">
               &
