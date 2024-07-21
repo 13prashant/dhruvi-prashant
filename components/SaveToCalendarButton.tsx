@@ -12,8 +12,8 @@ export enum Device {
   other = "other",
 }
 
-const location = "Ramji Vadi, Budiya, Surat- 395007";
-const googleMapsUrl = "https://maps.app.goo.gl/nrmQMFvFXswUfwQb7";
+export const location = "Ramji Vadi, Budiya, Surat- 394230";
+export const googleMapsUrl = "https://maps.app.goo.gl/nrmQMFvFXswUfwQb7";
 const organizerPhoneNumber = "+919662017916";
 
 const event = {

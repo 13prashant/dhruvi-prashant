@@ -2,8 +2,12 @@
 
 import Image from "next/image";
 import Confetti from "react-confetti";
-import SaveToCalendarButton from "../components/SaveToCalendarButton";
+import SaveToCalendarButton, {
+  googleMapsUrl,
+  location,
+} from "../components/SaveToCalendarButton";
 import useWindowSize from "../hooks/useWindowSize";
+import Link from "next/link";
 
 export default function Home() {
   const { windowSize } = useWindowSize();
@@ -47,7 +51,15 @@ export default function Home() {
 
           <div className="mb-5">
             <h3 className="text-2xl font-semibold mb-1">02 | 12 | 2024</h3>
-            <p className="text-sm">Ramji Vadi, Budiya, Surat- 395007</p>
+            <Link href={googleMapsUrl} className="flex items-center gap-1">
+              <p className="text-sm">{location}</p>
+              <Image
+                src="/assets/navigation.svg"
+                width={10}
+                height={10}
+                alt="Decor"
+              />
+            </Link>
           </div>
 
           <SaveToCalendarButton />
