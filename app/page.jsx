@@ -8,6 +8,8 @@ import SaveToCalendarButton, {
 } from "../components/SaveToCalendarButton";
 import useWindowSize from "../hooks/useWindowSize";
 import Link from "next/link";
+import ShootingStars from "../components/ShootingStars";
+import { StarsBackground } from "../components/StarsBackground";
 
 export default function Home() {
   const { windowSize } = useWindowSize();
@@ -64,6 +66,8 @@ export default function Home() {
 
           <SaveToCalendarButton />
         </div>
+        <ShootingStars />
+        <StarsBackground />
       </section>
     </main>
   );

@@ -10,12 +10,14 @@
   },
   "dependencies": {
     "bowser": "^2.11.0",
+    "clsx": "^2.1.1",
     "ics": "^3.7.6",
     "next": "14.2.4",
     "react": "^18",
     "react-confetti": "^6.1.0",
     "react-dom": "^18",
-    "react-hot-toast": "^2.4.1"
+    "react-hot-toast": "^2.4.1",
+    "tailwind-merge": "^2.4.0"
   },
   "devDependencies": {
     "@types/node": "^20.14.10",
