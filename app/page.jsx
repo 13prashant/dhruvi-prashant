@@ -53,7 +53,11 @@ export default function Home() {
 
           <div className="mb-5">
             <h3 className="text-2xl font-semibold mb-1">02 | 12 | 2024</h3>
-            <Link href={googleMapsUrl} className="flex items-center gap-1">
+            <Link
+              href={googleMapsUrl}
+              target="_blank"
+              className="flex items-center gap-1 hover:opacity-80 duration-200"
+            >
               <p className="text-sm">{location}</p>
               <Image
                 src="/assets/navigation.svg"
