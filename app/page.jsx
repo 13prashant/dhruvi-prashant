@@ -2,14 +2,12 @@
 
 import Image from "next/image";
 import Confetti from "react-confetti";
-import SaveToCalendarButton, {
-  googleMapsUrl,
-  location,
-} from "../components/SaveToCalendarButton";
+import SaveToCalendarButton from "../components/SaveToCalendarButton";
 import useWindowSize from "../hooks/useWindowSize";
 import Link from "next/link";
 import ShootingStars from "../components/ShootingStars";
 import { StarsBackground } from "../components/StarsBackground";
+import { googleMapsUrl, location } from "../lib/config";
 
 export default function Home() {
   const { windowSize } = useWindowSize();
