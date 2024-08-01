@@ -1,13 +1,15 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import Confetti from "react-confetti";
 import SaveToCalendarButton from "../components/SaveToCalendarButton";
 import useWindowSize from "../hooks/useWindowSize";
 import Link from "next/link";
-import ShootingStars from "../components/ShootingStars";
-import { StarsBackground } from "../components/StarsBackground";
 import { googleMapsUrl, location } from "../lib/config";
+
+const Confetti = dynamic(() => import("react-confetti"));
+const ShootingStars = dynamic(() => import("../components/ShootingStars"));
+const StarsBackground = dynamic(() => import("../components/StarsBackground"));
 
 export default function Home() {
   const { windowSize } = useWindowSize();
