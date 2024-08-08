@@ -43,7 +43,7 @@ export default function SaveToCalendarButton() {
 
   const handleSaveToCalendar = async () => {
     try {
-      const icsValue = (await generateICS(event)) as BlobPart;
+      const icsValue = (await generateICS(calendarEvent)) as BlobPart;
 
       const blob = new Blob([icsValue], {
         type: "text/calendar;charset=utf-8",
