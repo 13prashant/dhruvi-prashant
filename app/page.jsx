@@ -4,8 +4,8 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import SaveToCalendarButton from "../components/SaveToCalendarButton";
 import useWindowSize from "../hooks/useWindowSize";
-import Link from "next/link";
-import { googleMapsUrl, location } from "../lib/config";
+import { location } from "../lib/config";
+import GoogleMap from "../components/GoogleMap";
 
 const Confetti = dynamic(() => import("react-confetti"));
 const ShootingStars = dynamic(() => import("../components/ShootingStars"));
@@ -15,14 +15,14 @@ export default function Home() {
   const { windowSize } = useWindowSize();
 
   return (
-    <main className="desktop-bg h-screen grid place-items-center">
+    <main className="desktop-bg min-h-screen grid place-items-center">
       <Confetti
         className="w-full h-full"
         recycle={false}
         width={windowSize.width}
         height={windowSize.height}
       />
-      <section className="relative container max-w-lg mx-auto pl-12 bg-background h-screen max-h-[58rem] flex items-center pattern">
+      <section className="relative container max-w-lg mx-auto bg-background flex items-center pattern">
         <Image
           className="absolute top-0 right-0"
           src="/assets/decor-tr.svg"
@@ -38,12 +38,12 @@ export default function Home() {
           alt="Decor"
         />
 
-        <div className="relative z-50">
+        <div className="relative z-50 max-h-min pt-44 pb-10 w-full px-10">
           <strong className="text-sm underline decoration-wavy decoration-secondary tracking-wider">
             Wedding Invitation
           </strong>
 
-          <div className="relative w-fit flex flex-col gap-3 text-secondary mt-10 mb-10">
+          <div className="relative w-fit flex flex-col gap-3 text-secondary my-10">
             <h2 className="text-4xl font-semibold">Dhruvi</h2>
             <h1 className="text-9xl absolute -top-4 left-10 text-secondary/20">
               &
@@ -51,24 +51,11 @@ export default function Home() {
             <h2 className="text-4xl ml-10 font-semibold">Prashant</h2>
           </div>
 
-          <div className="mb-5">
-            <h3 className="text-2xl font-semibold mb-1">02 | 12 | 2024</h3>
-            <Link
-              href={googleMapsUrl}
-              target="_blank"
-              className="flex items-center gap-1 hover:opacity-80 duration-200"
-            >
-              <p className="text-sm">{location}</p>
-              <Image
-                src="/assets/navigation.svg"
-                width={10}
-                height={10}
-                alt="Decor"
-              />
-            </Link>
-          </div>
-
+          <h3 className="text-2xl font-semibold mb-2">02 | 12 | 2024</h3>
           <SaveToCalendarButton />
+
+          <p className="mt-20 font-semibold mb-3">{location}</p>
+          <GoogleMap />
         </div>
         <ShootingStars />
         <StarsBackground />
