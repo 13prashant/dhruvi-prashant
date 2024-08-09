@@ -18,10 +18,6 @@ module.exports = {
           DEFAULT: "#aa853e",
           foreground: "white",
         },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
       },
     },
   },
