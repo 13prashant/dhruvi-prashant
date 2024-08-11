@@ -23,7 +23,13 @@ export const Star: React.FC<StarProps> = ({
   opacity,
   twinkleSpeed,
 }) => (
-  <circle cx={x} cy={y} r={radius} fill="#785c32" opacity={opacity}>
+  <circle
+    cx={x}
+    cy={y}
+    r={radius}
+    fill="hsl(var(--primary))"
+    opacity={opacity}
+  >
     {twinkleSpeed !== null && (
       <animate
         attributeName="opacity"

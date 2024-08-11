@@ -23,19 +23,26 @@ export default function Home() {
         width={windowSize.width}
         height={windowSize.height}
       />
-      <section className="relative container max-w-lg mx-auto pl-12 bg-background h-screen max-h-[58rem] flex items-center pattern">
+      <section className="relative container max-w-lg mx-auto pl-12 bg-background h-screen max-h-[58rem] flex items-center overflow-hidden">
         <Image
-          className="absolute top-0 right-0"
-          src="/assets/decor-tr.svg"
-          width={200}
-          height={200}
+          className="absolute -top-10 right-0"
+          src="/assets/flowers-tr.svg"
+          width={250}
+          height={250}
           alt="Decor"
         />
         <Image
-          className="absolute bottom-0 left-0"
-          src="/assets/decor-bl.svg"
-          width={200}
-          height={200}
+          className="absolute bottom-0 right-0"
+          src="/assets/flowers-shadow-br.svg"
+          width={250}
+          height={250}
+          alt="Decor"
+        />
+        <Image
+          className="absolute -bottom-20 -left-24 rotate-180"
+          src="/assets/flowers-shadow-br.svg"
+          width={500}
+          height={500}
           alt="Decor"
         />
 

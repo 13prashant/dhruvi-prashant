@@ -25,7 +25,6 @@ export default function MapDrawer() {
       </DrawerTrigger>
       <DrawerContent className="max-w-lg mx-auto rounded-t-3xl focus:outline-none backdrop-blur-sm bg-background/70 p-4 pt-0">
         <DrawerHeader>
-          <hr className="w-1/2 h-1 mx-auto -mt-3 mb-10 bg-white border-0 rounded" />
           <DrawerTitle className="mb-8 text-center">{location}</DrawerTitle>
           <DrawerDescription>
             <GoogleMap />
