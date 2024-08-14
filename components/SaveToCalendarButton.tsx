@@ -5,32 +5,8 @@ import toast from "react-hot-toast";
 import { checkDevice } from "../lib/checkDevice";
 import { getBrowser } from "../lib/getBrowser";
 import { generateICS } from "../lib/icsGenerator";
-import { calendarEvent, location } from "../lib/config";
-
-export enum Device {
-  iOs = "iOs",
-  android = "android",
-  other = "other",
-}
-
-const startTime = new Date(Date.UTC(2024, 11, 2, 11, 30));
-const endTime = new Date(
-  startTime.getTime() +
-    calendarEvent.duration.hours * 60 * 60 * 1000 +
-    calendarEvent.duration.minutes * 60 * 1000
-);
-
-const formatDate = (date: Date) => {
-  return date.toISOString().replace(/-|:|\.\d+/g, "");
-};
-
-const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
-  calendarEvent.title
-)}&details=${encodeURIComponent(
-  calendarEvent.description
-)}&location=${encodeURIComponent(location)}&dates=${formatDate(
-  startTime
-)}/${formatDate(endTime)}&ctz=Asia/Kolkata&ctz=Asia/Kolkata`;
+import { calendarEvent, googleCalendarUrl } from "../lib/config";
+import { Device } from "../types";
 
 export default function SaveToCalendarButton() {
   const [device, setDevice] = useState(Device.other);
@@ -73,14 +49,11 @@ export default function SaveToCalendarButton() {
     }
   };
 
-  const buttonClasses =
-    "bg-primary/90 px-6 py-2 rounded-sm font-semibold cursor-pointer hover:bg-secondary text-primary-foreground duration-200";
-
   const isSafariWithIOs = device === Device.iOs && browser === "Safari";
 
   if (isSafariWithIOs) {
     return (
-      <button className={buttonClasses} onClick={handleSaveToCalendar}>
+      <button className="btn" onClick={handleSaveToCalendar}>
         Save to Calendar
       </button>
     );
@@ -91,7 +64,7 @@ export default function SaveToCalendarButton() {
       href={googleCalendarUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={buttonClasses}
+      className="btn"
     >
       Save to Calendar
     </a>

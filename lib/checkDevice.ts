@@ -1,9 +1,9 @@
-import { Device } from "../components/SaveToCalendarButton";
+import { Device } from "../types";
 
 export const checkDevice = () => {
-  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+  if (/iPad|iPhone|iPod/i.test(navigator.userAgent)) {
     return Device.iOs;
-  } else if (/android|Android/i.test(navigator.userAgent)) {
+  } else if (/Android/i.test(navigator.userAgent)) {
     return Device.android;
   } else {
     return Device.other;
