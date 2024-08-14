@@ -42,8 +42,8 @@ export default function SaveToCalendarButton() {
       console.error("Error generating ICS file:", error);
 
       toast.custom(
-        <div className="bg-primary/50 rounded-sm font-semibold backdrop-filter p-4 backdrop-blur-sm">
-          Unable to save the event! Please refresh the page and try again.
+        <div className="bg-primary/80 rounded-sm font-semibold backdrop-filter p-4 backdrop-blur-sm text-primary-foreground">
+          Something went wrong! Please refresh the page and try again.
         </div>
       );
     }

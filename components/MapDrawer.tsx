@@ -7,7 +7,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "./Drawer";
-import { location } from "../lib/config";
+import { EVENT_LOCATION } from "../lib/config";
 import GoogleMap from "./GoogleMap";
 
 export default function MapDrawer() {
@@ -25,7 +25,7 @@ export default function MapDrawer() {
       </DrawerTrigger>
       <DrawerContent className="max-w-lg mx-auto rounded-t-3xl focus:outline-none backdrop-blur-sm bg-background/70 p-4 pt-0">
         <DrawerHeader>
-          <DrawerTitle className="mb-8 text-center">{location}</DrawerTitle>
+          <DrawerTitle className="mb-8 text-center">{EVENT_LOCATION}</DrawerTitle>
           <DrawerDescription>
             <GoogleMap />
           </DrawerDescription>
