@@ -14,8 +14,7 @@ const myCheckDevice = checkDeviceLib as { checkDevice: () => Device };
  * 7. should show error-toast on handleSaveToCalendar function failure (iOs device with Safari browser)
  */
 
-const googleCalendarUrl =
-  "https://www.google.com/calendar/render?action=TEMPLATE&text=Dhruvi%20%26%20Prashant's%20Wedding&details=Join%20us%20for%20the%20wedding%20ceremony%20of%20Dhruvi%20%26%20Prashant.%0A%0ALocation%3A%20https%3A%2F%2Fmaps.app.goo.gl%2FnrmQMFvFXswUfwQb7%0APhone%3A%20%2B919662017916&location=Ramji%20Vadi%2C%20Budiya%2C%20Surat-%20394230&dates=20241202T113000Z/20241202T153000Z&ctz=Asia/Kolkata&ctz=Asia/Kolkata";
+const googleCalendarUrl = process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_URL;
 
 jest.mock("../lib/icsGenerator", () => ({
   generateIC: jest.fn(() => ""),

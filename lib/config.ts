@@ -65,23 +65,12 @@ export const calendarEvent = {
   ],
 };
 
-// Month index = Month-1
-const istDate = new Date(
+const startTime = new Date(
   EVENT_YEAR,
   EVENT_MONTH - 1,
   EVENT_DAY,
   EVENT_HOUR,
   EVENT_MINUTE
-);
-
-const startTime = new Date(
-  Date.UTC(
-    EVENT_YEAR,
-    EVENT_MONTH - 1,
-    EVENT_DAY,
-    istDate.getUTCHours(),
-    istDate.getUTCMinutes()
-  )
 );
 const endTime = new Date(
   startTime.getTime() +
