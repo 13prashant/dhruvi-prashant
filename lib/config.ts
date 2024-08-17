@@ -64,7 +64,6 @@ export const calendarEvent = {
     },
   ],
 };
-console.log("🚀 ~ calendarEvent:", calendarEvent);
 
 // Month index = Month-1
 const istDate = new Date(
