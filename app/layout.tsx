@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { Alice } from "next/font/google";
 import { Toaster } from "react-hot-toast";
-import "./globals.css";
 import {
   PRIMARY_NAME,
   SECONDARY_NAME,
@@ -11,6 +10,8 @@ import {
 } from "../lib/config";
 import { getMonthName } from "../lib/getMonthName";
 import { getOrdinalSuffix } from "../lib/getOrdinalSuffix";
+import { getTemplate } from "../lib/getTemplate";
+import "./globals.css";
 
 const alice = Alice({ subsets: ["latin"], weight: ["400"] });
 
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme={getTemplate()}>
       <body className={alice.className}>
         {children}
         <Toaster
