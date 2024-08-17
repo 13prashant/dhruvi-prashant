@@ -11,11 +11,35 @@ export const GOOGLE_MAPS_EMBED_URL =
 const ORGANIZER_PHONE_NUMBER =
   process.env.NEXT_PUBLIC_ORGANIZER_PHONE_NUMBER || "+910000000000";
 
-export const EVENT_YEAR = Number(process.env.NEXT_PUBLIC_EVENT_YEAR) || 1999;
-export const EVENT_MONTH = Number(process.env.NEXT_PUBLIC_EVENT_MONTH) || 13;
-export const EVENT_DAY = Number(process.env.NEXT_PUBLIC_EVENT_DAY) || 32;
-export const EVENT_HOUR = Number(process.env.NEXT_PUBLIC_EVENT_HOUR) || 25;
-export const EVENT_MINUTE = Number(process.env.NEXT_PUBLIC_EVENT_MINUTE) || 61;
+export const EVENT_YEAR =
+  process.env.NEXT_PUBLIC_EVENT_YEAR !== undefined &&
+  process.env.NEXT_PUBLIC_EVENT_YEAR !== null
+    ? Number(process.env.NEXT_PUBLIC_EVENT_YEAR)
+    : 1111;
+
+export const EVENT_MONTH =
+  process.env.NEXT_PUBLIC_EVENT_MONTH !== undefined &&
+  process.env.NEXT_PUBLIC_EVENT_MONTH !== null
+    ? Number(process.env.NEXT_PUBLIC_EVENT_MONTH)
+    : 13;
+
+export const EVENT_DAY =
+  process.env.NEXT_PUBLIC_EVENT_DAY !== undefined &&
+  process.env.NEXT_PUBLIC_EVENT_DAY !== null
+    ? Number(process.env.NEXT_PUBLIC_EVENT_DAY)
+    : 31;
+
+export const EVENT_HOUR =
+  process.env.NEXT_PUBLIC_EVENT_HOUR !== undefined &&
+  process.env.NEXT_PUBLIC_EVENT_HOUR !== null
+    ? Number(process.env.NEXT_PUBLIC_EVENT_HOUR)
+    : 25;
+
+export const EVENT_MINUTE =
+  process.env.NEXT_PUBLIC_EVENT_MINUTE !== undefined &&
+  process.env.NEXT_PUBLIC_EVENT_MINUTE !== null
+    ? Number(process.env.NEXT_PUBLIC_EVENT_MINUTE)
+    : 61;
 
 export const PRIMARY_NAME = process.env.NEXT_PUBLIC_PRIMARY_NAME || "The Groom";
 export const SECONDARY_NAME =
@@ -40,6 +64,7 @@ export const calendarEvent = {
     },
   ],
 };
+console.log("🚀 ~ calendarEvent:", calendarEvent);
 
 // Month index = Month-1
 const istDate = new Date(
