@@ -30,7 +30,7 @@ export default function RadiantUnion() {
   const { windowSize } = useWindowSize();
 
   return (
-    <main className="radiant-union-desktop-bg h-screen grid place-items-center">
+    <main className="font-radiantUnion radiant-union-desktop-bg h-screen grid place-items-center">
       <Confetti
         className="w-full h-full"
         recycle={false}

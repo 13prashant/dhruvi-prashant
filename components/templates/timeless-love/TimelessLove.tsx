@@ -30,7 +30,7 @@ export default function TimelessLove() {
   const { windowSize } = useWindowSize();
 
   return (
-    <main className="timeless-love-desktop-bg min-h-screen grid place-items-center">
+    <main className="font-timelessLove timeless-love-desktop-bg min-h-screen grid place-items-center">
       <Confetti
         className="w-full h-full"
         recycle={false}

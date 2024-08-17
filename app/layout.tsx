@@ -13,7 +13,16 @@ import { getOrdinalSuffix } from "../lib/getOrdinalSuffix";
 import { getTemplate } from "../lib/getTemplate";
 import "./globals.css";
 
-const alice = Alice({ subsets: ["latin"], weight: ["400"] });
+const radiantUnion = Alice({
+  subsets: ["latin"],
+  variable: "--font-radiant-union",
+  weight: ["400"],
+});
+const timelessLove = Alice({
+  subsets: ["latin"],
+  variable: "--font-timeless-love",
+  weight: ["400"],
+});
 
 export const metadata: Metadata = {
   title: `${PRIMARY_NAME} & ${SECONDARY_NAME}'s Wedding Invitation | Join Us on ${EVENT_DAY}${getOrdinalSuffix(
@@ -29,7 +38,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme={getTemplate()}>
-      <body className={alice.className}>
+      <body className={`${radiantUnion.variable} ${timelessLove.variable}`}>
         {children}
         <Toaster
           position="top-center"

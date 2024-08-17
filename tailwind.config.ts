@@ -23,6 +23,10 @@ module.exports = {
           foreground: "hsl(var(--muted-foreground))",
         },
       },
+      fontFamily: {
+        radiantUnion: ["var(--font-radiant-union)"],
+        timelessLove: ["var(--font-timeless-love)"],
+      },
     },
   },
   plugins: [],
