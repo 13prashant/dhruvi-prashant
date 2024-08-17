@@ -7,6 +7,6 @@ export const templates = {
 };
 
 export const getTemplate = () =>
-  !process.env.TEMPLATE || !templates[process.env.TEMPLATE]
+  !process.env.NEXT_PUBLIC_TEMPLATE || !templates[process.env.NEXT_PUBLIC_TEMPLATE]
     ? "radiant-union"
-    : process.env.TEMPLATE;
+    : process.env.NEXT_PUBLIC_TEMPLATE;

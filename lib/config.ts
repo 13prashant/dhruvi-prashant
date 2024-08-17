@@ -1,21 +1,27 @@
 import { formatDate } from "./formatDate";
 
-export const EVENT_LOCATION = "Ramji Vadi, Budiya, Surat- 394230";
-export const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/nrmQMFvFXswUfwQb7";
+export const EVENT_LOCATION =
+  process.env.NEXT_PUBLIC_EVENT_LOCATION || "A Place You'll Never Find";
+export const GOOGLE_MAPS_URL =
+  process.env.NEXT_PUBLIC_GOOGLE_MAPS_URL ||
+  "https://maps.app.goo.gl/GoodLuckWithThat";
 export const GOOGLE_MAPS_EMBED_URL =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.060465699335!2d72.8265558!3d21.1101554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be05149f2f09e9f%3A0xde14ff245739eb4f!2sRamji%20Vadi!5e0!3m2!1sen!2sin!4v1723102702237!5m2!1sen!2sin";
-const ORGANIZER_PHONE_NUMBER = "+919662017916";
+  process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_URL ||
+  "https://www.google.com/maps/embed/v1/view?zoom=1000&center=MiddleOfNowhere";
+const ORGANIZER_PHONE_NUMBER =
+  process.env.NEXT_PUBLIC_ORGANIZER_PHONE_NUMBER || "+910000000000";
 
-export const EVENT_YEAR = 2024;
-export const EVENT_MONTH = 12;
-export const EVENT_DAY = 2;
-export const EVENT_HOUR = 17;
-export const EVENT_MINUTE = 0;
+export const EVENT_YEAR = Number(process.env.NEXT_PUBLIC_EVENT_YEAR) || 1999;
+export const EVENT_MONTH = Number(process.env.NEXT_PUBLIC_EVENT_MONTH) || 13;
+export const EVENT_DAY = Number(process.env.NEXT_PUBLIC_EVENT_DAY) || 32;
+export const EVENT_HOUR = Number(process.env.NEXT_PUBLIC_EVENT_HOUR) || 25;
+export const EVENT_MINUTE = Number(process.env.NEXT_PUBLIC_EVENT_MINUTE) || 61;
 
-export const PRIMARY_NAME = "Dhruvi";
-export const SECONDARY_NAME = "Prashant";
+export const PRIMARY_NAME = process.env.NEXT_PUBLIC_PRIMARY_NAME || "The Groom";
+export const SECONDARY_NAME =
+  process.env.NEXT_PUBLIC_SECONDARY_NAME || "The Bride";
 
-const WEB_URL = "https://dhruvi.prashaant.in";
+const WEB_URL = process.env.NEXT_PUBLIC_WEB_URL || "https://www.prashaant.in/";
 
 export const calendarEvent = {
   start: [EVENT_YEAR, EVENT_MONTH, EVENT_DAY, EVENT_HOUR, EVENT_MINUTE],
