@@ -1,4 +1,4 @@
-import { formatDate } from "./formatDate";
+import moment from "moment-timezone";
 
 export const EVENT_LOCATION =
   process.env.NEXT_PUBLIC_EVENT_LOCATION || "A Place You'll Never Find";
@@ -65,28 +65,30 @@ export const calendarEvent = {
   ],
 };
 
-const eventDate = new Date(
-  EVENT_YEAR,
-  EVENT_MONTH - 1, // Months are 0-indexed
-  EVENT_DAY,
-  EVENT_HOUR,
-  EVENT_MINUTE
+export const timeZone = "Asia/Kolkata";
+
+const startTime = moment.tz(
+  {
+    year: EVENT_YEAR,
+    month: EVENT_MONTH - 1, // Months are 0-indexed
+    day: EVENT_DAY,
+    hour: EVENT_HOUR,
+    minute: EVENT_MINUTE,
+  },
+  timeZone
 );
 
-const timeZone = "Asia/Kolkata";
-
-const startTime = new Date(eventDate.toLocaleString("en-US", { timeZone }));
-
-const endTime = new Date(
-  startTime.getTime() +
-    calendarEvent.duration.hours * 60 * 60 * 1000 +
-    calendarEvent.duration.minutes * 60 * 1000
-);
+const endTime = startTime
+  .clone()
+  .add(calendarEvent.duration.hours, "hours")
+  .add(calendarEvent.duration.minutes, "minutes");
 
 export const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
   calendarEvent.title
 )}&details=${encodeURIComponent(
   calendarEvent.description
-)}&location=${encodeURIComponent(EVENT_LOCATION)}&dates=${formatDate(
-  startTime
-)}/${formatDate(endTime)}&ctz=${timeZone}`;
+)}&location=${encodeURIComponent(EVENT_LOCATION)}&dates=${startTime
+  .utc()
+  .format("YYYYMMDDTHHmmss")}Z/${endTime
+  .utc()
+  .format("YYYYMMDDTHHmmss")}Z&ctz=${timeZone}`;
