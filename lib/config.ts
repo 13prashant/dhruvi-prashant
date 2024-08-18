@@ -65,13 +65,18 @@ export const calendarEvent = {
   ],
 };
 
-const startTime = new Date(
+const eventDate = new Date(
   EVENT_YEAR,
-  EVENT_MONTH - 1,
+  EVENT_MONTH - 1, // Months are 0-indexed
   EVENT_DAY,
   EVENT_HOUR,
   EVENT_MINUTE
 );
+
+const timeZone = "Asia/Kolkata";
+
+const startTime = new Date(eventDate.toLocaleString("en-US", { timeZone }));
+
 const endTime = new Date(
   startTime.getTime() +
     calendarEvent.duration.hours * 60 * 60 * 1000 +
@@ -84,4 +89,4 @@ export const googleCalendarUrl = `https://www.google.com/calendar/render?action=
   calendarEvent.description
 )}&location=${encodeURIComponent(EVENT_LOCATION)}&dates=${formatDate(
   startTime
-)}/${formatDate(endTime)}&ctz=Asia/Kolkata&ctz=Asia/Kolkata`;
+)}/${formatDate(endTime)}&ctz=${timeZone}`;
