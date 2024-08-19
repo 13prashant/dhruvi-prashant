@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import {
   Drawer,
   DrawerContent,
@@ -12,21 +11,12 @@ import {
 } from "./Drawer";
 import { EVENT_LOCATION, GOOGLE_MAPS_EMBED_URL } from "../lib/config";
 
-export default function MapDrawer() {
+export default function MapDrawer(props: React.PropsWithChildren) {
   const [loading, setLoading] = useState(true);
 
   return (
     <Drawer>
-      <DrawerTrigger className="flex flex-col items-center justify-center text-primary focus:outline-none">
-        <Image
-          className="animate-bounce secondary opacity-30"
-          src="/assets/chevrons-up.svg"
-          width={25}
-          height={25}
-          alt="Up arrow"
-        />
-        <h6 className="text-xs font-semibold">View Location</h6>
-      </DrawerTrigger>
+      <DrawerTrigger>{props.children}</DrawerTrigger>
       <DrawerContent className="max-w-lg mx-auto rounded-t-3xl focus:outline-none backdrop-blur-sm bg-background/70 p-4 pt-0">
         <DrawerHeader>
           <DrawerTitle className="mb-8 text-center">

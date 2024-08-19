@@ -92,7 +92,14 @@ export default function TimelessLove() {
               />
             </Link>
           </div>
-          <SaveToCalendarButton />
+          <div className="flex flex-col gap-3">
+            <SaveToCalendarButton />
+            <MapDrawer>
+              <div className="btn btn-outline text-sm w-full">
+                View Location
+              </div>
+            </MapDrawer>
+          </div>
 
           <div className="fixed flex justify-center bottom-0 left-1/2 -translate-x-1/2 max-w-lg">
             <MapDrawer />

@@ -13,6 +13,9 @@
     --secondary: 39 47% 45%; /* (#aa853e) */
     --secondary-foreground: 0 0% 0%;
 
+    --muted: 224 100% 97%; /* (#f0f4ff) */
+    --muted-foreground: 240 3.8% 46.1%;
+
     --p1: #785c3201;
     --p2: #785c3204;
   }
@@ -40,7 +43,11 @@
 
 @layer components {
   .btn {
-    @apply bg-primary/90 px-6 py-2 rounded-sm font-semibold cursor-pointer hover:bg-secondary text-primary-foreground duration-200;
+    @apply text-center bg-primary/90 px-6 py-2 rounded-sm font-semibold cursor-pointer hover:bg-secondary text-primary-foreground duration-200;
+  }
+
+  .btn-outline {
+    @apply text-primary bg-transparent border border-primary/90 hover:bg-primary hover:text-primary-foreground;
   }
 }
 
